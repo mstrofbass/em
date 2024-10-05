@@ -1,6 +1,5 @@
 import chalk from 'chalk'
 import { Browser, ConsoleMessage, Device, Page } from 'puppeteer'
-import { WEBSOCKET_TIMEOUT } from '../../../constants'
 import sleep from '../../../util/sleep'
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -79,7 +78,7 @@ const setup = async ({
 
   // wait for YJS to give up connecting to WebsocketProvider
   // add 500ms for hamburger-menu animation to complete
-  await sleep(WEBSOCKET_TIMEOUT + 500)
+  await sleep(500)
 
   return page
 }
