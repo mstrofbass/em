@@ -11,9 +11,6 @@ const isE2E = !!navigator.webdriver
 const initialOfflineTimeout = isE2E ? 0 : 500
 const offlineTimeout = isE2E ? 0 : WEBSOCKET_TIMEOUT
 
-console.log('initialOfflineTimeout', initialOfflineTimeout)
-console.log('offlineTimeout', offlineTimeout)
-
 /** Enter a connecting state and then switch to offline after a delay. */
 const startConnecting = () => {
   stopConnecting()
