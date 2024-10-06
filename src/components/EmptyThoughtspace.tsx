@@ -26,10 +26,6 @@ const EmptyThoughtspace = ({ isTutorial }: { isTutorial?: boolean }) => {
   const isLoading = useSelector(state => state.isLoading)
   const status = offlineStatusStore.useState()
 
-  const isNotE2E = !navigator.webdriver
-  const isNotOffline = status !== 'offline'
-  const isNotPreconnectingOrIsConnecting = status === 'preconnecting' ? null : status === 'connecting'
-
   const tutorialStep = useSelector(state => +(getSetting(state, 'Tutorial Step') || 0))
 
   const colors = useSelector(themeColors)
@@ -39,7 +35,7 @@ const EmptyThoughtspace = ({ isTutorial }: { isTutorial?: boolean }) => {
       {
         // show nothing during the preconnecting phase (See: useOfflineStatus)
         // show loading ellipsis when connecting or loading
-        isNotE2E && (isNotPreconnectingOrIsConnecting || (isLoading && isNotOffline)) ? (
+        status === 'preconnecting' ? null : status === 'connecting' || (isLoading && status !== 'offline') ? (
           // (except when offline, otherwise the loading ellipsis will be shown indefinitely in the rare case where the tutorial has been closed but there are no thoughts)
           <LoadingEllipsis delay={1500} text={status === 'connecting' ? 'Connecting' : 'Loading'} center />
         ) : // tutorial no children
