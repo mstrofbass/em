@@ -12,6 +12,7 @@ import classNames from 'classnames'
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
+import { token } from '../../styled-system/tokens'
 import ShortcutType from '../@types/Shortcut'
 import ShortcutId from '../@types/ShortcutId'
 import TipId from '../@types/TipId'
@@ -146,7 +147,7 @@ const Toolbar: FC<ToolbarProps> = ({ customize, onSelect, selected }) => {
     <CSSTransition
       nodeRef={toolbarContainerRef}
       in={!distractionFreeTyping}
-      timeout={600}
+      timeout={parseInt(token('durations.toolbarFadeDuration'))}
       classNames='fade-600'
       unmountOnExit
     >

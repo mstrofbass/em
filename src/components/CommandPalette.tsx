@@ -3,6 +3,7 @@ import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef, useSt
 import { useDispatch, useSelector, useStore } from 'react-redux'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { css } from '../../styled-system/css'
+import { token } from '../../styled-system/tokens'
 import Shortcut from '../@types/Shortcut'
 import ShortcutId from '../@types/ShortcutId'
 import State from '../@types/State'
@@ -595,7 +596,13 @@ const CommandPaletteWithTransition: FC = () => {
       childFactory={(child: ReactElement) => (!isDismissed ? child : React.cloneElement(child, { timeout: 0 }))}
     >
       {showCommandPalette ? (
-        <CSSTransition key={0} nodeRef={popupRef} timeout={200} classNames='fade' onEntering={() => setDismiss(false)}>
+        <CSSTransition 
+          key={0} 
+          nodeRef={popupRef} 
+          timeout={parseInt(token('durations.commandPaletteFadeDuration'))} 
+          classNames='fade' 
+          onEntering={() => setDismiss(false)}
+        >
           <Popup
             ref={popupRef}
             // only show the close link on desktop

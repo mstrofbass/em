@@ -306,6 +306,60 @@ export default defineConfig({
           },
         },
         durations: {
+          addDeviceFormFadeDuration: {
+            value: {
+              base: '400',
+              _test: '0'
+            }
+          },
+          alertFadeDuration: {
+            value: {
+              base: '800',
+              _test: '0'
+            }
+          },
+          commandPaletteFadeDuration: {
+            value: {
+              base: '200',
+              _test: '0'
+            }
+          },
+          contextBreadcrumbsFadeDuration: {
+            value: {
+              base: '600',
+              _test: '0'
+            }
+          },
+          cursorBreadcrumbsFadeDuration: {
+            value: {
+              base: '200',
+              _test: '0'
+            }
+          },
+          errorMessageFadeDuration: {
+            value: {
+              base: '200',
+              _test: '0'
+            }
+          },
+          favoritesSlideDuration: {
+            value: {
+              base: '150',
+              _test: '0'
+            }
+          },
+          favoritesOptionsEaseOutDuration: {
+            value: {
+              base: '150ms',
+              _test: '0s'
+            }
+          },
+          hamburgerMenuFadeTransition: {
+            value: {
+              base: '600',
+              _test: '0'
+            }
+          },
           highlightPulseDuration: {
             value: {
               base: '500ms',
@@ -316,6 +370,12 @@ export default defineConfig({
             value: {
               base: '300ms',
               _test: '0s',
+            },
+          },
+          latestShortcutsTransitionDuration: {
+            value: {
+              base: '400',
+              _test: '0',
             },
           },
           /** The animation duration for the slower opacity transition and horizontal shift of the LayoutTree as the depth of the cursor changes. */
@@ -331,6 +391,90 @@ export default defineConfig({
               base: '150ms',
               _test: '0s',
             },
+          },
+          modalTransitionDuration: {
+            value: {
+              base: '400ms',
+              _test: '0s',
+            },
+          },
+          quickDropPanelSlideDuration: {
+            value: {
+              base: '200',
+              _test: '0',
+            },
+          },
+          sidebarFadeDuration: {
+            value: {
+              base: '200',
+              _test: '0',
+            },
+          },
+          shareListFadeDuration: {
+            value: {
+              base: '400',
+              _test: '0',
+            },
+          },
+          shortcutTableFadeDuration: {
+            value: {
+              base: '200',
+              _test: '0',
+            },
+          },
+          snapbackAnimationDuration: {
+            value: {
+              base: '100',
+              _test: '0',
+            },
+          },
+          textColorIconFadeDuration: {
+            value: {
+              base: '200',
+              _test: '0',
+            },
+          },
+          toolbarButtonOpacityAnimationDuration: {
+            value: {
+              base: '200ms',
+              _test: '0s',
+            },
+          },
+          toolbarButtonTransformAnimationDuration: {
+            value: {
+              base: '80ms',
+              _test: '0s',
+            },
+          },
+          toolbarInstructionsFadeDuration: {
+            value: {
+              base: '200',
+              _test: '0',
+            },
+          },
+          toolbarFadeDuration: {
+            value: {
+              base: '600',
+              _test: '0',
+            },
+          },
+          traceGestureFadeDuration: {
+            value: {
+              base: '400',
+              _test: '0',
+            },
+          },
+          traceGestureOpacityDuration: {
+            value: {
+              base: '150ms',
+              _test: '0s',
+            },
+          },
+          tutorialErrorFadeDuration: {
+            value: {
+              base: '400',
+              _test: '0'
+            }
           },
         },
       },

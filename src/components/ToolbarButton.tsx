@@ -1,5 +1,6 @@
 import React, { FC, MutableRefObject, useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
+import { token } from '../../styled-system/tokens'
 import DragShortcutZone from '../@types/DragShortcutZone'
 import Icon from '../@types/Icon'
 import ShortcutId from '../@types/ShortcutId'
@@ -139,7 +140,7 @@ const ToolbarButton: FC<ToolbarButtonProps> = ({
       width: fontSize + 4,
       height: fontSize + 4,
       opacity: dropToRemove ? 0 : 1,
-      transition: 'opacity 200ms ease-out',
+      transition: `opacity ${token('durations.toolbarButtonOpacityAnimationDuration')} ease-out`,
     }),
     [buttonError, colors, dropToRemove, fontSize, isButtonActive, isButtonExecutable, isDragging, longPress.isPressed],
   )
@@ -168,7 +169,7 @@ const ToolbarButton: FC<ToolbarButtonProps> = ({
         transform: `translateY(${isButtonExecutable && isPressing && !longPress.isPressed && !isDragging ? 0.25 : 0}em`,
         position: 'relative',
         cursor: isButtonExecutable ? 'pointer' : 'default',
-        transition: 'transform 80ms ease-out, max-width 80ms ease-out, margin-left 80ms ease-out',
+        transition: `transform ${token('durations.toolbarButtonTransformAnimationDuration')} ease-out, max-width ${token('durations.toolbarButtonTransformAnimationDuration')} ease-out, margin-left ${token('durations.toolbarButtonTransformAnimationDuration')} ease-out`,
         // extend drop area down, otherwise the drop hover is blocked by the user's finger
         // must match toolbar marginBottom
         paddingBottom: isDraggingAny ? '7em' : 0,

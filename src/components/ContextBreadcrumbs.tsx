@@ -5,6 +5,7 @@ import { shallowEqual, useSelector } from 'react-redux'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { css, cx } from '../../styled-system/css'
 import { extendTap } from '../../styled-system/recipes'
+import { token } from '../../styled-system/tokens'
 import { SystemStyleObject } from '../../styled-system/types'
 import Index from '../@types/IndexType'
 import Path from '../@types/Path'
@@ -245,7 +246,12 @@ const ContextBreadcrumbs = ({
             // Otherwise also it incorrectly animates a changed segment when moving the cursor to a sibling, which doesn't look as good as a direct replacement.
             // This way it will only animate when the length of the cursor changes.
             return (
-              <CSSTransition key={i} nodeRef={nodeRef} timeout={600} classNames='fade-600'>
+              <CSSTransition 
+                key={i} 
+                nodeRef={nodeRef} 
+                timeout={parseInt(token('durations.commandPaletteFadeDuration'))} 
+                classNames='fade-600'
+              >
                 <BreadCrumb
                   ref={nodeRef}
                   isOverflow={isOverflow}

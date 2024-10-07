@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import { FC, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
+import { token } from '../../styled-system/tokens'
 import GesturePath from '../@types/GesturePath'
 import GestureDiagram from './GestureDiagram'
 
@@ -31,7 +32,7 @@ const LatestShortcutsDiagram: FC<LatestShortcutsDiagramProps> = ({ position = 'm
         nodeRef={latestShortcutsElRef}
         in={latestShortcuts.length > 0}
         classNames={'latest-shortcuts-transition'}
-        timeout={400}
+        timeout={parseInt(token('durations.latestShortcutsTransitionDuration'))}
         unmountOnExit
       >
         <div

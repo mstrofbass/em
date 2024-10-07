@@ -2,6 +2,7 @@ import { Capacitor } from '@capacitor/core'
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import CSSTransition from 'react-transition-group/CSSTransition'
+import { token } from '../../styled-system/tokens'
 import { isTouch } from '../browser'
 import CopyOneDrop from './CopyOneDrop'
 import DeleteDrop from './DeleteDrop'
@@ -13,7 +14,13 @@ const QuickDropPanel = () => {
   const quickDropPanelRef = useRef<HTMLDivElement>(null)
 
   return (
-    <CSSTransition nodeRef={quickDropPanelRef} in={isDragging} timeout={200} classNames='slide-right' unmountOnExit>
+    <CSSTransition 
+      nodeRef={quickDropPanelRef} 
+      in={isDragging} 
+      timeout={parseInt(token('durations.alertFadeDuration'))}
+      classNames='slide-right' 
+      unmountOnExit
+    >
       <div
         ref={quickDropPanelRef}
         style={{

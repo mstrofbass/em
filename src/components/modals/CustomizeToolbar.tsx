@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { css } from '../../../styled-system/css'
 import { anchorButton, extendTap, modal } from '../../../styled-system/recipes'
+import { token } from '../../../styled-system/tokens'
 import DragAndDropType from '../../@types/DragAndDropType'
 import DragShortcutZone from '../../@types/DragShortcutZone'
 import DragToolbarItem from '../../@types/DragToolbarItem'
@@ -149,7 +150,7 @@ const ModalCustomizeToolbar: FC = () => {
           nodeRef={shortcutsContainerRef}
           in={!!selectedShortcut}
           classNames='fade'
-          timeout={200}
+          timeout={parseInt(token('durations.shortcutTableFadeDuration'))}
           exit={false}
           unmountOnExit
         >
@@ -177,7 +178,13 @@ const ModalCustomizeToolbar: FC = () => {
         </CSSTransition>
       </div>
 
-      <CSSTransition in={!selectedShortcut} classNames='fade' timeout={200} exit={false} unmountOnExit>
+      <CSSTransition 
+        in={!selectedShortcut} 
+        classNames='fade' 
+        timeout={parseInt(token('durations.toolbarInstructionsFadeDuration'))}
+        exit={false} 
+        unmountOnExit
+      >
         <div className='dim' style={{ marginTop: '2em', marginBottom: '2.645em' }}>
           <p>Drag-and-drop to rearrange toolbar.</p>
           <p>{isTouch ? 'Tap' : 'Click'} a command for details.</p>

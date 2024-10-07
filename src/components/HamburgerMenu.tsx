@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { css } from '../../styled-system/css'
+import { token } from '../../styled-system/tokens'
 import Index from '../@types/IndexType'
 import { toggleSidebarActionCreator as toggleSidebar } from '../actions/toggleSidebar'
 import distractionFreeTypingStore from '../stores/distractionFreeTyping'
@@ -65,7 +66,7 @@ const HamburgerMenu = () => {
     <CSSTransition
       nodeRef={hamburgerMenuRef}
       in={!distractionFreeTyping}
-      timeout={600}
+      timeout={parseInt(token('durations.hamburgerMenuFadeTransition'))}
       classNames='fade-600'
       unmountOnExit
     >

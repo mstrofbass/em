@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { anchorButton, extendTap, modalText } from '../../../styled-system/recipes'
+import { token } from '../../../styled-system/tokens'
 import Index from '../../@types/IndexType'
 import Role from '../../@types/Role'
 import Share from '../../@types/Share'
@@ -64,7 +65,7 @@ const ModalDevices = () => {
               nodeRef={shareDetailRef}
               classNames='fade-400'
               exit={false}
-              timeout={400}
+              timeout={parseInt(token('durations.shareListFadeDuration'))}
               unmountOnExit
             >
               <ShareDetail
@@ -81,7 +82,7 @@ const ModalDevices = () => {
               nodeRef={shareListRef}
               classNames='fade-400'
               exit={false}
-              timeout={400}
+              timeout={parseInt(token('durations.shareListFadeDuration'))}
               unmountOnExit
             >
               <ShareList ref={shareListRef} onAdd={setSelected} onSelect={setSelected} permissions={permissions} />
@@ -163,7 +164,13 @@ const ShareList = React.forwardRef<
             {
               // form
               showDeviceForm ? (
-                <CSSTransition key='add-device-form' classNames='fade-400' exit={false} timeout={400} unmountOnExit>
+                <CSSTransition 
+                  key='add-device-form' 
+                  classNames='fade-400' 
+                  exit={false} 
+                  timeout={parseInt(token('durations.addDeviceFormFadeDuration'))}
+                  unmountOnExit
+                >
                   <div>
                     <AddDeviceForm
                       onCancel={() => setShowDeviceForm(false)}
@@ -186,7 +193,13 @@ const ShareList = React.forwardRef<
                 </CSSTransition>
               ) : (
                 // "+ Add a device" button
-                <CSSTransition key='add-a-device' classNames='fade-400' exit={false} timeout={400} unmountOnExit>
+                <CSSTransition 
+                  key='add-a-device' 
+                  classNames='fade-400' 
+                  exit={false} 
+                  timeout={parseInt(token('durations.addDeviceFormFadeDuration'))} 
+                  unmountOnExit
+                >
                   <div style={{ marginTop: '1em' }}>
                     <a
                       {...fastClick(() => setShowDeviceForm(true))}

@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { token } from '../../styled-system/tokens'
 
 const defaultOptions = {
   dismissThreshold: '50%',
   dx: 0,
-  snapbackDuration: 0.1,
+  snapbackDuration: parseInt(token('durations.alertFadeDuration')) / 1000,
   snapbackEasing: 'ease-out',
 }
 

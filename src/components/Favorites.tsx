@@ -3,6 +3,7 @@ import _ from 'lodash'
 import { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CSSTransition from 'react-transition-group/CSSTransition'
+import { token } from '../../styled-system/tokens'
 import DragThoughtZone from '../@types/DragThoughtZone'
 import SimplePath from '../@types/SimplePath'
 import { toggleUserSettingActionCreator as toggleUserSetting } from '../actions/toggleUserSetting'
@@ -121,7 +122,7 @@ const FavoritesOptions = ({
             style={{
               display: 'inline-block',
               transform: `rotate(${showOptions ? 90 : 0}deg)`,
-              transition: 'transform 150ms ease-out',
+              transition: `transform ${token('durations.favoritesOptionsEaseOutDuration')} ease-out`,
               // avoid position:absolute to trivially achieve correct vertical alignment with text
               marginLeft: '-1em',
             }}
@@ -133,7 +134,13 @@ const FavoritesOptions = ({
       </div>
 
       <div style={{ overflow: 'hidden' }}>
-        <CSSTransition in={showOptions} nodeRef={formRef} timeout={150} classNames='slidedown' unmountOnExit>
+        <CSSTransition 
+          in={showOptions} 
+          nodeRef={formRef} 
+          timeout={parseInt(token('durations.favoritesSlideDuration'))} 
+          classNames='slidedown' 
+          unmountOnExit
+        >
           <form
             ref={formRef}
             className='text-small'
