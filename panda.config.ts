@@ -343,7 +343,7 @@ export default defineConfig({
           layoutNodeAnimationDuration: duration('150ms'),
           quickDropPanelSlideDuration: duration('200ms'),
           sidebarFadeDuration: duration('200ms'),
-          toolbarFadeDuration: duration('600'),
+          toolbarFadeDuration: duration('600ms'),
         },
       },
     },
