@@ -178,11 +178,11 @@ const ModalCustomizeToolbar: FC = () => {
         </CSSTransition>
       </div>
 
-      <CSSTransition 
-        in={!selectedShortcut} 
-        classNames='fade' 
+      <CSSTransition
+        in={!selectedShortcut}
+        classNames='fade'
         timeout={parseInt(token('durations.toolbarInstructionsFadeDuration'))}
-        exit={false} 
+        exit={false}
         unmountOnExit
       >
         <div className='dim' style={{ marginTop: '2em', marginBottom: '2.645em' }}>

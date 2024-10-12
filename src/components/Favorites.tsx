@@ -134,11 +134,11 @@ const FavoritesOptions = ({
       </div>
 
       <div style={{ overflow: 'hidden' }}>
-        <CSSTransition 
-          in={showOptions} 
-          nodeRef={formRef} 
-          timeout={parseInt(token('durations.favoritesSlideDuration'))} 
-          classNames='slidedown' 
+        <CSSTransition
+          in={showOptions}
+          nodeRef={formRef}
+          timeout={parseInt(token('durations.favoritesSlideDuration'))}
+          classNames='slidedown'
           unmountOnExit
         >
           <form

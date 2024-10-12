@@ -143,9 +143,9 @@ const TraceGesture = ({ eventNodeRef }: TraceGestureProps) => {
         pointerEvents: eventNodeRef ? 'none' : undefined,
       }}
     >
-      <CSSTransition 
-        nodeRef={fadeBothEnterElRef} 
-        in={show} 
+      <CSSTransition
+        nodeRef={fadeBothEnterElRef}
+        in={show}
         timeout={parseInt(token('durations.alertFadeDuration'))}
         classNames='fade-both'
       >

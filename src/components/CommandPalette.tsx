@@ -596,11 +596,11 @@ const CommandPaletteWithTransition: FC = () => {
       childFactory={(child: ReactElement) => (!isDismissed ? child : React.cloneElement(child, { timeout: 0 }))}
     >
       {showCommandPalette ? (
-        <CSSTransition 
-          key={0} 
-          nodeRef={popupRef} 
-          timeout={parseInt(token('durations.commandPaletteFadeDuration'))} 
-          classNames='fade' 
+        <CSSTransition
+          key={0}
+          nodeRef={popupRef}
+          timeout={parseInt(token('durations.commandPaletteFadeDuration'))}
+          classNames='fade'
           onEntering={() => setDismiss(false)}
         >
           <Popup

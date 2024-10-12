@@ -152,9 +152,9 @@ const Sidebar = () => {
           })}
           data-scroll-at-edge
         >
-          <CSSTransition 
-            in={showSidebar} 
-            nodeRef={sidebarMenuRef} 
+          <CSSTransition
+            in={showSidebar}
+            nodeRef={sidebarMenuRef}
             timeout={parseInt(token('durations.sidebarFadeDuration'))}
             classNames='fade'
           >

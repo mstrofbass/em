@@ -164,10 +164,10 @@ const ShareList = React.forwardRef<
             {
               // form
               showDeviceForm ? (
-                <CSSTransition 
-                  key='add-device-form' 
-                  classNames='fade-400' 
-                  exit={false} 
+                <CSSTransition
+                  key='add-device-form'
+                  classNames='fade-400'
+                  exit={false}
                   timeout={parseInt(token('durations.addDeviceFormFadeDuration'))}
                   unmountOnExit
                 >
@@ -193,11 +193,11 @@ const ShareList = React.forwardRef<
                 </CSSTransition>
               ) : (
                 // "+ Add a device" button
-                <CSSTransition 
-                  key='add-a-device' 
-                  classNames='fade-400' 
-                  exit={false} 
-                  timeout={parseInt(token('durations.addDeviceFormFadeDuration'))} 
+                <CSSTransition
+                  key='add-a-device'
+                  classNames='fade-400'
+                  exit={false}
+                  timeout={parseInt(token('durations.addDeviceFormFadeDuration'))}
                   unmountOnExit
                 >
                   <div style={{ marginTop: '1em' }}>

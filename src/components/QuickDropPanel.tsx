@@ -14,11 +14,11 @@ const QuickDropPanel = () => {
   const quickDropPanelRef = useRef<HTMLDivElement>(null)
 
   return (
-    <CSSTransition 
-      nodeRef={quickDropPanelRef} 
-      in={isDragging} 
+    <CSSTransition
+      nodeRef={quickDropPanelRef}
+      in={isDragging}
       timeout={parseInt(token('durations.alertFadeDuration'))}
-      classNames='slide-right' 
+      classNames='slide-right'
       unmountOnExit
     >
       <div

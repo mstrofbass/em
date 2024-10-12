@@ -309,56 +309,56 @@ export default defineConfig({
           addDeviceFormFadeDuration: {
             value: {
               base: '400',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
           alertFadeDuration: {
             value: {
               base: '800',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
           commandPaletteFadeDuration: {
             value: {
               base: '200',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
           contextBreadcrumbsFadeDuration: {
             value: {
               base: '600',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
           cursorBreadcrumbsFadeDuration: {
             value: {
               base: '200',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
           errorMessageFadeDuration: {
             value: {
               base: '200',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
           favoritesSlideDuration: {
             value: {
               base: '150',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
           favoritesOptionsEaseOutDuration: {
             value: {
               base: '150ms',
-              _test: '0s'
-            }
+              _test: '0s',
+            },
           },
           hamburgerMenuFadeTransition: {
             value: {
               base: '600',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
           highlightPulseDuration: {
             value: {
@@ -473,8 +473,8 @@ export default defineConfig({
           tutorialErrorFadeDuration: {
             value: {
               base: '400',
-              _test: '0'
-            }
+              _test: '0',
+            },
           },
         },
       },

@@ -46,11 +46,11 @@ const WithCSSTransition = ({ component, ...props }: { component: FC<any>; [props
 
   const Component = component
   return (
-    <CSSTransition 
-      nodeRef={nodeRef} 
-      in={true} 
-      key={Math.floor(props.transitionKey)} 
-      timeout={parseInt(token('durations.tutorialErrorFadeDuration'))} 
+    <CSSTransition
+      nodeRef={nodeRef}
+      in={true}
+      key={Math.floor(props.transitionKey)}
+      timeout={parseInt(token('durations.tutorialErrorFadeDuration'))}
       classNames='slide'
     >
       <div ref={nodeRef}>
