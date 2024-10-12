@@ -352,6 +352,7 @@ export default defineConfig({
           signaturePadFadeDuration: duration('400ms'),
           toolbarFadeDuration: duration('600ms'),
           toolbarHelpTextFadeDuration: duration('200ms'),
+          tutorialStepSlideDuration: duration('400ms'),
         },
       },
     },
