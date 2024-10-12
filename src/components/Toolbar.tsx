@@ -12,6 +12,7 @@ import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { css, cva } from '../../styled-system/css'
+import { token } from '../../styled-system/tokens'
 import ShortcutType from '../@types/Shortcut'
 import ShortcutId from '../@types/ShortcutId'
 import TipId from '../@types/TipId'
@@ -20,11 +21,10 @@ import { TOOLBAR_DEFAULT_SHORTCUTS, TOOLBAR_PRESS_ANIMATION_DURATION } from '../
 import getUserToolbar from '../selectors/getUserToolbar'
 import { shortcutById } from '../shortcuts'
 import distractionFreeTypingStore from '../stores/distractionFreeTyping'
+import toMilliseconds from '../util/toMilliseconds'
 import ToolbarButton from './ToolbarButton'
 import TriangleLeft from './TriangleLeft'
 import TriangleRight from './TriangleRight'
-import toMilliseconds from '../util/toMilliseconds'
-import { token } from '../../styled-system/tokens'
 
 interface ToolbarProps {
   // places the toolbar into customize mode where buttons can be dragged and dropped.
