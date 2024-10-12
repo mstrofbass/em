@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { css, cx } from '../../styled-system/css'
 import { anchorButton } from '../../styled-system/recipes'
+import { token } from '../../styled-system/tokens'
 import { alertActionCreator } from '../actions/alert'
 import { redoActionCreator as redo } from '../actions/redo'
 import { undoActionCreator as undo } from '../actions/undo'
@@ -10,6 +11,7 @@ import { AlertType } from '../constants'
 import isUndoEnabled from '../selectors/isUndoEnabled'
 import alertStore from '../stores/alert'
 import fastClick from '../util/fastClick'
+import toMilliseconds from '../util/toMilliseconds'
 import Popup from './Popup'
 import RedoIcon from './RedoIcon'
 import UndoIcon from './UndoIcon'
@@ -65,7 +67,7 @@ const Alert: FC = () => {
         <CSSTransition
           key={0}
           nodeRef={popupRef}
-          timeout={800}
+          timeout={toMilliseconds(token('durations.alertFadeDuration'))}
           classNames='fade-slow-out'
           onEntering={() => setDismiss(false)}
         >
