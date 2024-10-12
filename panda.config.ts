@@ -342,6 +342,7 @@ export default defineConfig({
           /** The animation duration of a node in the LayoutTree component. */
           layoutNodeAnimationDuration: duration('150ms'),
           quickDropPanelSlideDuration: duration('200ms'),
+          sidebarFadeDuration: duration('200ms'),
         },
       },
     },
