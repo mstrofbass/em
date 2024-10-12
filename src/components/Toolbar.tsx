@@ -23,6 +23,8 @@ import distractionFreeTypingStore from '../stores/distractionFreeTyping'
 import ToolbarButton from './ToolbarButton'
 import TriangleLeft from './TriangleLeft'
 import TriangleRight from './TriangleRight'
+import toMilliseconds from '../util/toMilliseconds'
+import { token } from '../../styled-system/tokens'
 
 interface ToolbarProps {
   // places the toolbar into customize mode where buttons can be dragged and dropped.
@@ -189,7 +191,7 @@ const Toolbar: FC<ToolbarProps> = ({ customize, onSelect, selected }) => {
     <CSSTransition
       nodeRef={toolbarContainerRef}
       in={!distractionFreeTyping}
-      timeout={600}
+      timeout={toMilliseconds(token('durations.toolbarFadeDuration'))}
       classNames='fade-600'
       unmountOnExit
     >
