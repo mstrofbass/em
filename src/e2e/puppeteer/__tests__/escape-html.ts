@@ -1,4 +1,3 @@
-import sleep from '../../../util/sleep'
 import helpers from '../helpers'
 
 vi.setConfig({ testTimeout: 20000 })
