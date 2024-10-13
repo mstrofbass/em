@@ -1,5 +1,4 @@
 import path from 'path'
-import sleep from '../../../util/sleep'
 import configureSnapshots from '../configureSnapshots'
 import paste from '../helpers/paste'
 import removeHUD from '../helpers/removeHUD'
@@ -31,7 +30,6 @@ describe('Table View', () => {
           - Cincinnati, Ohio
     `)
 
-    await sleep(500)
     const image = await screenshot()
     expect(image).toMatchImageSnapshot()
   })
@@ -53,7 +51,6 @@ describe('Table View', () => {
           - 2/5
     `)
 
-    await sleep(1000)
     const image = await screenshot()
     expect(image).toMatchImageSnapshot()
   })
