@@ -17,8 +17,6 @@ const pastePlainText = async (text: string) => {
     ])
   }, text)
 
-  await sleep(300)
-
   await page.keyboard.down('Shift')
   await page.keyboard.press('Insert')
   await page.keyboard.up('Shift')
@@ -35,8 +33,6 @@ const pasteHTML = async (html: string) => {
       }),
     ])
   }, html)
-
-  await sleep(300)
 
   await page.keyboard.down('Shift')
   await page.keyboard.press('Insert')
