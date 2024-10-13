@@ -34,9 +34,6 @@ it('single line', async () => {
 
   await press('ArrowUp')
 
-  // wait for render animation to complete
-  await sleep(1000)
-
   const image = await screenshot()
   expect(image).toMatchImageSnapshot()
 })
@@ -99,9 +96,6 @@ it('collapsed thought with url child', async () => {
   `)
 
   await press('Escape')
-
-  // wait for render animation to complete
-  await sleep(1000)
 
   const image = await screenshot()
   expect(image).toMatchImageSnapshot()
