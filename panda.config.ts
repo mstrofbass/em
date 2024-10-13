@@ -341,7 +341,12 @@ export default defineConfig({
           dropEndTransitionDuration: duration('150ms'),
           errorMessageFadeDuration: duration('200ms'),
           favoritesSlidedownDuration: duration('150ms'),
-          hamburgerMenuFadeDuration: duration('600ms'),
+          hamburgerMenuFadeDuration: {
+            value: {
+              base: '600ms',
+              _test: '600ms',
+            },
+          },
           highlightPulseDuration: duration('500ms'),
           hoverPulseDuration: duration('300ms'),
           latestShortcutsOpacityDuration: duration('400ms'),
