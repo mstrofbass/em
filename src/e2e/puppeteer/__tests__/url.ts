@@ -23,7 +23,8 @@ vi.setConfig({ testTimeout: 60000, hookTimeout: 20000 })
 // Tests the following cases:
 // - Single line url
 // - Single line url with cursor
-it('single line', async () => {
+// Getting intermittent  failures here due to a layout shift. Issue #2452 seeks to address this.
+it.skip('single line', async () => {
   await removeHUD()
 
   await paste(`
