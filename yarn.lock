@@ -4131,7 +4131,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinonjs/fake-timers@npm:^13.0.4":
+"@sinonjs/fake-timers@npm:^13.0.5":
   version: 13.0.5
   resolution: "@sinonjs/fake-timers@npm:13.0.5"
   dependencies:
@@ -7682,7 +7682,7 @@ __metadata:
     "@emotion/styled": "npm:^11.13.0"
     "@mui/material": "npm:^6.1.5"
     "@pandacss/dev": "npm:^0.47.0"
-    "@sinonjs/fake-timers": "npm:^13.0.4"
+    "@sinonjs/fake-timers": "npm:^13.0.5"
     "@stylistic/eslint-plugin": "npm:^2.10.1"
     "@stylistic/eslint-plugin-ts": "npm:^2.10.1"
     "@testing-library/dom": "npm:^10.4.0"
