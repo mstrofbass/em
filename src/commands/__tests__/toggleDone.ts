@@ -6,8 +6,6 @@ import createTestStore from '../../test-helpers/createTestStore'
 import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helpers/setCursorFirstMatch'
 import executeCommand, { executeCommandWithMulticursor } from '../../util/executeCommand'
 import toggleDoneShortcut from '../toggleDone'
-import dispatch from '../../test-helpers/dispatch'
-import { clearActionCreator as clear } from '../../actions/clear'
 
 describe('toggleDone', () => {
   it('marks a thought as done', async () => {
@@ -93,9 +91,6 @@ describe('toggleDone', () => {
 
     it('handles mixed scenarios with done and not done thoughts', async () => {
       const store = await createTestStore()
-
-      const initial = exportContext(store.getState(), [HOME_TOKEN], 'text/plain')
-      console.log('initial', initial)
 
       store.dispatch([
         importText({
