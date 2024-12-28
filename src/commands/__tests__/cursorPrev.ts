@@ -9,8 +9,8 @@ import expectPathToEqual from '../../test-helpers/expectPathToEqual'
 import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helpers/setCursorFirstMatch'
 
 describe('normal view', () => {
-  it('move cursor to previous sibling', () => {
-    const store = createTestStore()
+  it('move cursor to previous sibling', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -27,8 +27,8 @@ describe('normal view', () => {
     expectPathToEqual(stateNew, stateNew.cursor, ['a'])
   })
 
-  it('move to last root child when there is no cursor', () => {
-    const store = createTestStore()
+  it('move to last root child when there is no cursor', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -44,8 +44,8 @@ describe('normal view', () => {
     expectPathToEqual(stateNew, stateNew.cursor, ['b'])
   })
 
-  it('do nothing when the cursor on the first sibling', () => {
-    const store = createTestStore()
+  it('do nothing when the cursor on the first sibling', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -61,16 +61,16 @@ describe('normal view', () => {
     expectPathToEqual(stateNew, stateNew.cursor, ['a'])
   })
 
-  it('do nothing when there are no thoughts', () => {
-    const store = createTestStore()
+  it('do nothing when there are no thoughts', async () => {
+    const store = await createTestStore()
 
     store.dispatch(cursorPrev())
 
     expect(store.getState().cursor).toBe(null)
   })
 
-  it('sorted thoughts', () => {
-    const store = createTestStore()
+  it('sorted thoughts', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -98,8 +98,8 @@ describe('normal view', () => {
 })
 
 describe('context view', () => {
-  it('move cursor to prev context', () => {
-    const store = createTestStore()
+  it('move cursor to prev context', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -121,8 +121,8 @@ describe('context view', () => {
     expectPathToEqual(stateNew, stateNew.cursor, ['a', 'm', 'a'])
   })
 
-  it('noop if on first context', () => {
-    const store = createTestStore()
+  it('noop if on first context', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -159,7 +159,7 @@ describe('global suppress expansion', () => {
         - e
         - f`
 
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -183,7 +183,7 @@ describe('global suppress expansion', () => {
         - e
         - f`
 
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -208,7 +208,7 @@ describe('global suppress expansion', () => {
         - e
         - f`
 
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({

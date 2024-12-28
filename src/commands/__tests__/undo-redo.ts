@@ -22,8 +22,8 @@ import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helper
  ******************************************************************/
 
 describe('undo', () => {
-  it('undo edit', () => {
-    const store = createTestStore()
+  it('undo edit', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -56,8 +56,8 @@ describe('undo', () => {
     expect(lexemeAA).toBeFalsy()
   })
 
-  it('state remains unchanged if there is nothing to undo', () => {
-    const store = createTestStore()
+  it('state remains unchanged if there is nothing to undo', async () => {
+    const store = await createTestStore()
 
     store.dispatch(
       importText({
@@ -78,8 +78,8 @@ describe('undo', () => {
     expect(store.getState()).toEqual(prevState)
   })
 
-  it('ingore alerts', () => {
-    const store = createTestStore()
+  it('ingore alerts', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -100,15 +100,15 @@ describe('undo', () => {
     expect(alertExists).toEqual(false)
   })
 
-  it('non-undoable actions are ignored', () => {
-    const store = createTestStore()
+  it('non-undoable actions are ignored', async () => {
+    const store = await createTestStore()
     store.dispatch([{ type: 'search', value: 'New' }, { type: 'showModal', id: 'welcome' }, { type: 'toggleSidebar' }])
 
     expect(store.getState().undoPatches.length).toEqual(0)
   })
 
-  it('undo importText', () => {
-    const store = createTestStore()
+  it('undo importText', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       newThought({}),
@@ -125,8 +125,8 @@ describe('undo', () => {
     expect(exported).toEqual(`- ${HOME_TOKEN}`)
   })
 
-  it('cursor should restore to same thought if the thought has been edited after undo', () => {
-    const store = createTestStore()
+  it('cursor should restore to same thought if the thought has been edited after undo', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       newThought({}),
@@ -194,8 +194,8 @@ describe('undo', () => {
  ******************************************************************/
 
 describe('redo', () => {
-  it('redo edit', () => {
-    const store = createTestStore()
+  it('redo edit', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -223,8 +223,8 @@ describe('redo', () => {
     expect(lexemeA).toBeFalsy()
   })
 
-  it('redo importText', () => {
-    const store = createTestStore()
+  it('redo importText', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       newThought({}),
@@ -247,8 +247,8 @@ describe('redo', () => {
   - B`)
   })
 
-  it('clear redo history after a new action is taken', () => {
-    const store = createTestStore()
+  it('clear redo history after a new action is taken', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -277,8 +277,8 @@ describe('redo', () => {
  ******************************************************************/
 
 describe('grouping', () => {
-  it('group all navigation actions following an undoable(non-navigation) action and undo them together', () => {
-    const store = createTestStore()
+  it('group all navigation actions following an undoable(non-navigation) action and undo them together', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -326,8 +326,8 @@ describe('grouping', () => {
     expect(exportedAfterSecondUndo).toEqual(expectedOutputAfterSecondUndo)
   })
 
-  it('newThought action should be grouped with the succeeding patch', () => {
-    const store = createTestStore()
+  it('newThought action should be grouped with the succeeding patch', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -352,8 +352,8 @@ describe('grouping', () => {
     expect(exported).toEqual(expectedOutput)
   })
 
-  it('contiguous changes should be grouped', () => {
-    const store = createTestStore()
+  it('contiguous changes should be grouped', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -375,8 +375,8 @@ describe('grouping', () => {
     expect(exported).toEqual(expectedOutput)
   })
 
-  it('ignore dead actions and combine dispensible actions with the preceding patch', () => {
-    const store = createTestStore()
+  it('ignore dead actions and combine dispensible actions with the preceding patch', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({

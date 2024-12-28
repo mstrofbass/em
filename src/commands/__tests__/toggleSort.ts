@@ -625,8 +625,8 @@ describe('DOM', () => {
 
 describe('store', () => {
   describe('local', () => {
-    it('NULL -> Asc', () => {
-      const store = createTestStore()
+    it('NULL -> Asc', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -646,8 +646,8 @@ describe('store', () => {
       expect(attributeByContext(store.getState(), ['a'], '=sort')).toBe('Alphabetical')
     })
 
-    it('Asc -> Desc', () => {
-      const store = createTestStore()
+    it('Asc -> Desc', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -671,8 +671,8 @@ describe('store', () => {
       expect(attributeByContext(store.getState(), ['a', '=sort'], 'Alphabetical')).toBe('Desc')
     })
 
-    it('Desc -> NULL', () => {
-      const store = createTestStore()
+    it('Desc -> NULL', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -694,8 +694,8 @@ describe('store', () => {
       expect(attributeByContext(store.getState(), ['a'], '=sort')).toBe(null)
     })
 
-    it('None -> Asc (home)', () => {
-      const store = createTestStore()
+    it('None -> Asc (home)', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -716,8 +716,8 @@ describe('store', () => {
       expect(attributeByContext(store.getState(), [HOME_TOKEN], '=sort')).toBe('Alphabetical')
     })
 
-    it('Asc -> Desc (home)', () => {
-      const store = createTestStore()
+    it('Asc -> Desc (home)', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -737,8 +737,8 @@ describe('store', () => {
       expect(attributeByContext(store.getState(), ['=sort'], 'Alphabetical')).toBe('Desc')
     })
 
-    it('sort new thoughts after toggling sort', () => {
-      const store = createTestStore()
+    it('sort new thoughts after toggling sort', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -764,8 +764,8 @@ describe('store', () => {
   - e`)
     })
 
-    it('restore sort order', () => {
-      const store = createTestStore()
+    it('restore sort order', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -789,8 +789,8 @@ describe('store', () => {
   - b`)
     })
 
-    it('restore sort order after new thoughts are added', () => {
-      const store = createTestStore()
+    it('restore sort order after new thoughts are added', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -816,8 +816,8 @@ describe('store', () => {
       expect(a.rank).toBeLessThan(b.rank)
     })
 
-    it('restore sort order after some thoughts are removed', () => {
-      const store = createTestStore()
+    it('restore sort order after some thoughts are removed', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -846,8 +846,8 @@ describe('store', () => {
   })
 
   describe('global sort', () => {
-    it('Asc -> NULL when global is Desc', () => {
-      const store = createTestStore()
+    it('Asc -> NULL when global is Desc', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -875,8 +875,8 @@ describe('store', () => {
       expect(attributeByContext(store.getState(), ['a'], '=sort')).toBe(null)
     })
 
-    it('NULL -> None when global is Desc', () => {
-      const store = createTestStore()
+    it('NULL -> None when global is Desc', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -901,8 +901,8 @@ describe('store', () => {
       expect(attributeByContext(store.getState(), ['a'], '=sort')).toBe('None')
     })
 
-    it('override global Asc with local Desc', () => {
-      const store = createTestStore()
+    it('override global Asc with local Desc', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -933,7 +933,7 @@ describe('store', () => {
 
 describe('multicursor', () => {
   it('should sort the cursors with first-sibling filter', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -962,7 +962,7 @@ describe('multicursor', () => {
   })
 
   it('should handle nested thoughts', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -1015,8 +1015,8 @@ describe('multicursor', () => {
         - Desc`)
   })
 
-  it('should maintain multicursor after sorting', () => {
-    const store = createTestStore()
+  it('should maintain multicursor after sorting', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({

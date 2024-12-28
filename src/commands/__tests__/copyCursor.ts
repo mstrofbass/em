@@ -14,7 +14,7 @@ describe('copyCursor', () => {
   })
 
   it('copies a single thought and its descendants', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -41,7 +41,7 @@ describe('copyCursor', () => {
 
   describe('multicursor', () => {
     it('copies multiple thoughts and their descendants', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -74,7 +74,7 @@ describe('copyCursor', () => {
     })
 
     it('only copies ancestors when both ancestor and descendant are selected', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -103,7 +103,7 @@ describe('copyCursor', () => {
     })
 
     it('handles mixed scenarios correctly', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

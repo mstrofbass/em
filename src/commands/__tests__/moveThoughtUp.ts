@@ -8,8 +8,8 @@ import { executeCommandWithMulticursor } from '../../util/executeCommand'
 import moveThoughtUpShortcut from '../moveThoughtUp'
 
 describe('moveThoughtUp', () => {
-  it('moves a single thought up', () => {
-    const store = createTestStore()
+  it('moves a single thought up', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -32,9 +32,9 @@ describe('moveThoughtUp', () => {
   - b`)
   })
 
-  describe('multicursor', () => {
+  describe('multicursor', async () => {
     it('moves multiple thoughts up', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -63,7 +63,7 @@ describe('moveThoughtUp', () => {
     })
 
     it('handles mixed scenarios correctly', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -98,8 +98,8 @@ describe('moveThoughtUp', () => {
   - d`)
     })
 
-    it('does not move the first thought', () => {
-      const store = createTestStore()
+    it('does not move the first thought', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

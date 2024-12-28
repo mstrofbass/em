@@ -42,7 +42,7 @@ describe('delete', () => {
 
   describe('multicursor', () => {
     it('deletes multiple thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -69,7 +69,7 @@ describe('delete', () => {
     })
 
     it('deletes thoughts at different levels', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -100,7 +100,7 @@ describe('delete', () => {
     })
 
     it('does not delete read-only thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

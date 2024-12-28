@@ -9,8 +9,8 @@ import executeCommand, { executeCommandWithMulticursor } from '../../util/execut
 import favorite from '../favorite'
 
 describe('favorite', () => {
-  it('adds a thought to favorites', () => {
-    const store = createTestStore()
+  it('adds a thought to favorites', async () => {
+    const store = await createTestStore()
 
     store.dispatch([newThought({ value: 'A' }), setCursor(['A'])])
 
@@ -24,8 +24,8 @@ describe('favorite', () => {
     expect(exported).toEqual(expectedOutput)
   })
 
-  it('removes a thought from favorites', () => {
-    const store = createTestStore()
+  it('removes a thought from favorites', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -48,7 +48,7 @@ describe('favorite', () => {
 
   describe('multicursor', () => {
     it('adds multiple thoughts to favorites', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -76,7 +76,7 @@ describe('favorite', () => {
     })
 
     it('removes multiple thoughts from favorites', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -106,7 +106,7 @@ describe('favorite', () => {
     })
 
     it('handles mixed scenarios correctly', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

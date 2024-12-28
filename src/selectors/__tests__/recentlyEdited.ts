@@ -6,8 +6,8 @@ import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helper
 import pathToContext from '../../util/pathToContext'
 import recentlyEdited from '../recentlyEdited'
 
-it('default', () => {
-  const store = createTestStore()
+it('default', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -36,8 +36,8 @@ it('default', () => {
   ])
 })
 
-it('filter out deleted thoughts', () => {
-  const store = createTestStore()
+it('filter out deleted thoughts', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -62,8 +62,8 @@ it('filter out deleted thoughts', () => {
   expect(contexts).toEqual([['a', 'b', 'cc']])
 })
 
-it('filter out adjacent ancestors', () => {
-  const store = createTestStore()
+it('filter out adjacent ancestors', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({

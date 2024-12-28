@@ -8,8 +8,8 @@ import executeCommand, { executeCommandWithMulticursor } from '../../util/execut
 import splitSentencesShortcut from '../splitSentences'
 
 describe('splitSentences', () => {
-  it('splits a thought with multiple sentences', () => {
-    const store = createTestStore()
+  it('splits a thought with multiple sentences', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -29,8 +29,8 @@ describe('splitSentences', () => {
   - This is sentence three.`)
   })
 
-  it('does not split a thought with a single sentence', () => {
-    const store = createTestStore()
+  it('does not split a thought with a single sentence', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -48,8 +48,8 @@ describe('splitSentences', () => {
   - This is a single sentence.`)
   })
 
-  it('handles sentences with punctuation and special characters', () => {
-    const store = createTestStore()
+  it('handles sentences with punctuation and special characters', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -69,8 +69,8 @@ describe('splitSentences', () => {
   - I'm fine, thanks.`)
   })
 
-  it('splits by comma if have only one sentence', () => {
-    const store = createTestStore()
+  it('splits by comma if have only one sentence', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -90,8 +90,8 @@ describe('splitSentences', () => {
   - Bach`)
   })
 
-  it('splits by "and" also, if have only one sentence', () => {
-    const store = createTestStore()
+  it('splits by "and" also, if have only one sentence', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -117,7 +117,7 @@ describe('splitSentences', () => {
 
   describe('multicursor', () => {
     it('splits sentences in multiple thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -145,7 +145,7 @@ describe('splitSentences', () => {
     })
 
     it('handles mixed scenarios with single and multiple sentences', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

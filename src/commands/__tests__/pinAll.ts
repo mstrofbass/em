@@ -6,8 +6,8 @@ import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helper
 import executeCommand from '../../util/executeCommand'
 import pinAllShortcut from '../pinAll'
 
-it('toggle on when there is no =children attribute', () => {
-  const store = createTestStore()
+it('toggle on when there is no =children attribute', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -41,8 +41,8 @@ it('toggle on when there is no =children attribute', () => {
       - g`)
 })
 
-it('toggle on when =children/=pin is false', () => {
-  const store = createTestStore()
+it('toggle on when =children/=pin is false', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -79,8 +79,8 @@ it('toggle on when =children/=pin is false', () => {
       - g`)
 })
 
-it('remove =children when toggling off from =pin/true', () => {
-  const store = createTestStore()
+it('remove =children when toggling off from =pin/true', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -114,8 +114,8 @@ it('remove =children when toggling off from =pin/true', () => {
       - g`)
 })
 
-it('remove =children when toggling off from =pin', () => {
-  const store = createTestStore()
+it('remove =children when toggling off from =pin', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -148,8 +148,8 @@ it('remove =children when toggling off from =pin', () => {
       - g`)
 })
 
-it('remove =pin/false from all subthoughts when toggling on', () => {
-  const store = createTestStore()
+it('remove =pin/false from all subthoughts when toggling on', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({

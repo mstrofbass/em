@@ -53,8 +53,8 @@ describe('DOM', () => {
   })
 })
 
-it('do nothing when there is no cursor', () => {
-  const store = createTestStore()
+it('do nothing when there is no cursor', async () => {
+  const store = await createTestStore()
 
   store.dispatch([{ type: 'newThought', value: 'a' }, setCursor(null)])
 
@@ -68,8 +68,8 @@ it('do nothing when there is no cursor', () => {
   expect(exported).toEqual(expectedOutput)
 })
 
-it('outdent on pressing backspace at the beginning of the thought', () => {
-  const store = createTestStore()
+it('outdent on pressing backspace at the beginning of the thought', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -95,8 +95,8 @@ it('outdent on pressing backspace at the beginning of the thought', () => {
   expect(exported).toEqual(expectedOutput)
 })
 
-it('do not outdent thought with siblings', () => {
-  const store = createTestStore()
+it('do not outdent thought with siblings', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -124,7 +124,7 @@ it('do not outdent thought with siblings', () => {
 
 describe('multicursor', () => {
   it('deletes multiple empty thoughts', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       newThought({ value: 'a' }),
@@ -150,7 +150,7 @@ describe('multicursor', () => {
   })
 
   it('outdents multiple only children', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -180,7 +180,7 @@ describe('multicursor', () => {
   })
 
   it('handles mixed scenarios correctly', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({

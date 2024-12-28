@@ -10,7 +10,7 @@ import archiveShortcut from '../archive'
 describe('archive', () => {
   describe('multicursor', () => {
     it('archives multiple thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -40,7 +40,7 @@ describe('archive', () => {
     })
 
     it('archives thoughts at different levels', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -75,7 +75,7 @@ describe('archive', () => {
     })
 
     it('does not archive read-only thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -106,7 +106,7 @@ describe('archive', () => {
     })
 
     it('permanently deletes thoughts that are already archived', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -135,7 +135,7 @@ describe('archive', () => {
     })
 
     it('archives empty thoughts with descendants', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

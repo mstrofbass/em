@@ -10,7 +10,7 @@ import outdentShortcut from '../outdent'
 describe('outdent', () => {
   describe('multicursor', () => {
     it('outdents multiple thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -39,7 +39,7 @@ describe('outdent', () => {
     })
 
     it('outdents thoughts at different levels', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -71,8 +71,8 @@ describe('outdent', () => {
       expect(exported).toEqual(expectedOutput)
     })
 
-    it('does not outdent thoughts already at the root level', () => {
-      const store = createTestStore()
+    it('does not outdent thoughts already at the root level', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -100,8 +100,8 @@ describe('outdent', () => {
       expect(exported).toEqual(expectedOutput)
     })
 
-    it('outdents parent/child thoughts', () => {
-      const store = createTestStore()
+    it('outdents parent/child thoughts', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

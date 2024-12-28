@@ -8,8 +8,8 @@ import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helper
 import executeCommand, { executeCommandWithMulticursor } from '../../util/executeCommand'
 import toggleTableViewShortcut from '../toggleTableView'
 
-it('toggle on table view of parent of cursor (initial state without =view attribute)', () => {
-  const store = createTestStore()
+it('toggle on table view of parent of cursor (initial state without =view attribute)', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -30,8 +30,8 @@ it('toggle on table view of parent of cursor (initial state without =view attrib
   expect(attributeByContext(store.getState(), ['a'], '=view')).toBe('Table')
 })
 
-it('toggle on table view of parent of cursor (initial state =view attribute set to Prose)', () => {
-  const store = createTestStore()
+it('toggle on table view of parent of cursor (initial state =view attribute set to Prose)', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -54,8 +54,8 @@ it('toggle on table view of parent of cursor (initial state =view attribute set 
   expect(attributeByContext(store.getState(), ['a'], '=view')).toBe('Table')
 })
 
-it('toggle on table view of parent of cursor (initial state without =view attribute)', () => {
-  const store = createTestStore()
+it('toggle on table view of parent of cursor (initial state without =view attribute)', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -81,7 +81,7 @@ it('toggle on table view of parent of cursor (initial state without =view attrib
 
 describe('multicursor', () => {
   it('toggles table view on for multiple thoughts', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -124,7 +124,7 @@ describe('multicursor', () => {
   })
 
   it('handles mixed scenarios with table view on and off', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -169,7 +169,7 @@ describe('multicursor', () => {
   })
 
   it('toggles table view on nested thoughts', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({

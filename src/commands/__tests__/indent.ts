@@ -10,7 +10,7 @@ import indentShortcut from '../indent'
 describe('indent', () => {
   describe('multicursor', () => {
     it('indents multiple thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -39,7 +39,7 @@ describe('indent', () => {
     })
 
     it('indents thoughts at different levels', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -71,8 +71,8 @@ describe('indent', () => {
       expect(exported).toEqual(expectedOutput)
     })
 
-    it('does not indent all thoughts on the same level', () => {
-      const store = createTestStore()
+    it('does not indent all thoughts on the same level', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -100,8 +100,8 @@ describe('indent', () => {
       expect(exported).toEqual(expectedOutput)
     })
 
-    it('indents parent/child thoughts', () => {
-      const store = createTestStore()
+    it('indents parent/child thoughts', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

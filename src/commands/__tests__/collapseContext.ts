@@ -10,7 +10,7 @@ import collapseContextShortcut from '../collapseContext'
 describe('collapseContext', () => {
   describe('multicursor', () => {
     it('collapses multiple thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -43,7 +43,7 @@ describe('collapseContext', () => {
     })
 
     it('collapses thoughts at different levels', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -84,7 +84,7 @@ describe('collapseContext', () => {
     })
 
     it('does not collapse thoughts without children', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -114,7 +114,7 @@ describe('collapseContext', () => {
     })
 
     it('collapses nested thoughts correctly', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

@@ -69,7 +69,7 @@ describe('normal view', () => {
   })
 
   it('work for sorted thoughts', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
     act(() => {
       store.dispatch([
         importTextAction({
@@ -90,8 +90,8 @@ describe('normal view', () => {
     expectPathToEqual(stateNew, stateNew.cursor, ['a', 'm'])
   })
 
-  it('move cursor from empty thought to next thought in context sorted in descending order', () => {
-    const store = createTestStore()
+  it('move cursor from empty thought to next thought in context sorted in descending order', async () => {
+    const store = await createTestStore()
     act(() => {
       store.dispatch([
         importTextAction({

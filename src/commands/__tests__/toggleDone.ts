@@ -6,10 +6,12 @@ import createTestStore from '../../test-helpers/createTestStore'
 import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helpers/setCursorFirstMatch'
 import executeCommand, { executeCommandWithMulticursor } from '../../util/executeCommand'
 import toggleDoneShortcut from '../toggleDone'
+import dispatch from '../../test-helpers/dispatch'
+import { clearActionCreator as clear } from '../../actions/clear'
 
 describe('toggleDone', () => {
-  it('marks a thought as done', () => {
-    const store = createTestStore()
+  it('marks a thought as done', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -32,8 +34,8 @@ describe('toggleDone', () => {
     - c`)
   })
 
-  it('unmarks a thought as done', () => {
-    const store = createTestStore()
+  it('unmarks a thought as done', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -58,7 +60,7 @@ describe('toggleDone', () => {
 
   describe('multicursor', () => {
     it('marks multiple thoughts as done', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({
@@ -90,7 +92,10 @@ describe('toggleDone', () => {
     })
 
     it('handles mixed scenarios with done and not done thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
+
+      const initial = exportContext(store.getState(), [HOME_TOKEN], 'text/plain')
+      console.log('initial', initial)
 
       store.dispatch([
         importText({
@@ -113,6 +118,7 @@ describe('toggleDone', () => {
       executeCommandWithMulticursor(toggleDoneShortcut, { store })
 
       const exported = exportContext(store.getState(), [HOME_TOKEN], 'text/plain')
+
       expect(exported).toBe(`- __ROOT__
   - a
     - b

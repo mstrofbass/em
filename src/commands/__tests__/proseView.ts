@@ -7,8 +7,8 @@ import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helper
 import executeCommand, { executeCommandWithMulticursor } from '../../util/executeCommand'
 import proseViewShortcut from '../proseView'
 
-it('toggle on prose view of parent of cursor (initial state without =view attribute)', () => {
-  const store = createTestStore()
+it('toggle on prose view of parent of cursor (initial state without =view attribute)', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -32,8 +32,8 @@ it('toggle on prose view of parent of cursor (initial state without =view attrib
       - c`)
 })
 
-it('toggle on prose view of parent of cursor (initial state with =view attribute set to Table)', () => {
-  const store = createTestStore()
+it('toggle on prose view of parent of cursor (initial state with =view attribute set to Table)', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -59,8 +59,8 @@ it('toggle on prose view of parent of cursor (initial state with =view attribute
       - c`)
 })
 
-it('toggle off prose view of parent of cursor', () => {
-  const store = createTestStore()
+it('toggle off prose view of parent of cursor', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -86,7 +86,7 @@ it('toggle off prose view of parent of cursor', () => {
 
 describe('multicursor', () => {
   it('toggles prose view on multiple thoughts', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -129,7 +129,7 @@ describe('multicursor', () => {
   })
 
   it('toggles prose view off for thoughts that already have it', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -172,7 +172,7 @@ describe('multicursor', () => {
   })
 
   it('handles mixed scenarios correctly', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({

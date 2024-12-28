@@ -10,7 +10,7 @@ import toggleContextViewShortcut from '../toggleContextView'
 describe('toggleContextView', () => {
   describe('multicursor', () => {
     it('toggles context view for multiple thoughts', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

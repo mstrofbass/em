@@ -7,8 +7,8 @@ import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helper
 import executeCommand, { executeCommandWithMulticursor } from '../../util/executeCommand'
 import pinShortcut from '../pin'
 
-it('toggle on when there is no =pin attribute', () => {
-  const store = createTestStore()
+it('toggle on when there is no =pin attribute', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -40,8 +40,8 @@ it('toggle on when there is no =pin attribute', () => {
       - g`)
 })
 
-it('toggle on when =pin/false', () => {
-  const store = createTestStore()
+it('toggle on when =pin/false', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -76,8 +76,8 @@ it('toggle on when =pin/false', () => {
       - g`)
 })
 
-it('remove =pin when toggling off', () => {
-  const store = createTestStore()
+it('remove =pin when toggling off', async () => {
+  const store = await createTestStore()
 
   // import thoughts
   store.dispatch([
@@ -109,8 +109,8 @@ it('remove =pin when toggling off', () => {
       - g`)
 })
 
-it('remove =pin/true when toggling off', () => {
-  const store = createTestStore()
+it('remove =pin/true when toggling off', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -144,7 +144,7 @@ it('remove =pin/true when toggling off', () => {
 
 describe('multicursor', () => {
   it('pins multiple thoughts', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -184,7 +184,7 @@ describe('multicursor', () => {
   })
 
   it('toggles pin state for multiple thoughts', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -224,7 +224,7 @@ describe('multicursor', () => {
   })
 
   it('pins thoughts at different levels', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -258,7 +258,7 @@ describe('multicursor', () => {
   })
 
   it('toggles pin state for thoughts with mixed initial states', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -290,7 +290,7 @@ describe('multicursor', () => {
   })
 
   it('handles nested thoughts correctly', async () => {
-    const store = createTestStore()
+    const store = await createTestStore()
 
     store.dispatch([
       importText({

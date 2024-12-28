@@ -17,8 +17,8 @@ beforeEach(vi.useFakeTimers)
 afterEach(vi.useRealTimers)
 
 describe('jump history', () => {
-  it('add edited path to jump history', () => {
-    const store = createTestStore()
+  it('add edited path to jump history', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -38,8 +38,8 @@ describe('jump history', () => {
     expect(pathToContext(state, state.jumpHistory[0]!)).toEqual(['a', 'xx'])
   })
 
-  it('navigaton does not push to jump history', () => {
-    const store = createTestStore()
+  it('navigaton does not push to jump history', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -63,8 +63,8 @@ describe('jump history', () => {
     expect(stateA.jumpHistory.length).toEqual(stateB.jumpHistory.length)
   })
 
-  it('replace last jump when editing a sibling', () => {
-    const store = createTestStore()
+  it('replace last jump when editing a sibling', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -89,8 +89,8 @@ describe('jump history', () => {
     expect(stateA.jumpHistory.length).toEqual(stateB.jumpHistory.length)
   })
 
-  it('replace last jump when editing a child', () => {
-    const store = createTestStore()
+  it('replace last jump when editing a child', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -113,8 +113,8 @@ describe('jump history', () => {
   })
 
   // TODO: We should probably merge ancestors.
-  it('do not merge ancestors (?)', () => {
-    const store = createTestStore()
+  it('do not merge ancestors (?)', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -138,8 +138,8 @@ describe('jump history', () => {
 })
 
 describe('jump back', () => {
-  it('jump back to the last edit point', () => {
-    const store = createTestStore()
+  it('jump back to the last edit point', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -163,8 +163,8 @@ describe('jump back', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['a', 'b', 'cc'])
   })
 
-  it('replace the last jump point when editing its parent', () => {
-    const store = createTestStore()
+  it('replace the last jump point when editing its parent', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -210,8 +210,8 @@ describe('jump back', () => {
     expect(state2.cursor && pathToContext(state2, state2.cursor)).toEqual(['x', 'yy'])
   })
 
-  it('replace the last jump point when editing its child', () => {
-    const store = createTestStore()
+  it('replace the last jump point when editing its child', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -257,8 +257,8 @@ describe('jump back', () => {
     expect(state2.cursor && pathToContext(state2, state2.cursor)).toEqual(['x', 'yy'])
   })
 
-  it('replace the last jump point when editing its sibling', () => {
-    const store = createTestStore()
+  it('replace the last jump point when editing its sibling', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -307,8 +307,8 @@ describe('jump back', () => {
     expect(state2.cursor && pathToContext(state2, state2.cursor)).toEqual(['x', 'yy'])
   })
 
-  it('jump back to edit after indent', () => {
-    const store = createTestStore()
+  it('jump back to edit after indent', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -333,8 +333,8 @@ describe('jump back', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['a', 'bb'])
   })
 
-  it('jump back after new subthought', () => {
-    const store = createTestStore()
+  it('jump back after new subthought', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -356,8 +356,8 @@ describe('jump back', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['a', 'b'])
   })
 
-  it('jump back to edit after delete', () => {
-    const store = createTestStore()
+  it('jump back to edit after delete', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -391,8 +391,8 @@ describe('jump back', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['a', 'b', 'cc'])
   })
 
-  it('jump back to parent of delete', () => {
-    const store = createTestStore()
+  it('jump back to parent of delete', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -426,8 +426,8 @@ describe('jump back', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['d', 'e'])
   })
 
-  it('jump back from null cursor', () => {
-    const store = createTestStore()
+  it('jump back from null cursor', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -448,8 +448,8 @@ describe('jump back', () => {
 })
 
 describe('jump forward', () => {
-  it('jump back then forward should restore the cursor to where it was before jump back', () => {
-    const store = createTestStore()
+  it('jump back then forward should restore the cursor to where it was before jump back', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -473,8 +473,8 @@ describe('jump forward', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['dd'])
   })
 
-  it('jump back then forward then back should be equivalent to a single jump back', () => {
-    const store = createTestStore()
+  it('jump back then forward then back should be equivalent to a single jump back', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -508,8 +508,8 @@ describe('jump forward', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['a', 'b', 'cc'])
   })
 
-  it('jump back then forward after indent', () => {
-    const store = createTestStore()
+  it('jump back then forward after indent', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       newThought({ value: '' }),
@@ -525,8 +525,8 @@ describe('jump forward', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['a', 'b'])
   })
 
-  it('do nothing if jump back was not activated', () => {
-    const store = createTestStore()
+  it('do nothing if jump back was not activated', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -549,8 +549,8 @@ describe('jump forward', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['dd'])
   })
 
-  it('do nothing if already on most recent edit', () => {
-    const store = createTestStore()
+  it('do nothing if already on most recent edit', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -576,8 +576,8 @@ describe('jump forward', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['dd'])
   })
 
-  it('ignore jump back if already back to the beginning', () => {
-    const store = createTestStore()
+  it('ignore jump back if already back to the beginning', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -605,8 +605,8 @@ describe('jump forward', () => {
     expect(state.cursor && pathToContext(state, state.cursor)).toEqual(['dd'])
   })
 
-  it('jump forward to parent after delete', () => {
-    const store = createTestStore()
+  it('jump forward to parent after delete', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({

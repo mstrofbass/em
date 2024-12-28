@@ -8,8 +8,8 @@ import executeCommand, { executeCommandWithMulticursor } from '../../util/execut
 import swapNoteShortcut from '../swapNote'
 
 describe('swapNote', () => {
-  it('converts a thought to a note', () => {
-    const store = createTestStore()
+  it('converts a thought to a note', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -30,8 +30,8 @@ describe('swapNote', () => {
       - b`)
   })
 
-  it('converts a note back to a thought', () => {
-    const store = createTestStore()
+  it('converts a note back to a thought', async () => {
+    const store = await createTestStore()
 
     store.dispatch([
       importText({
@@ -56,7 +56,7 @@ describe('swapNote', () => {
 
   describe('multicursor', () => {
     it('converts multiple thoughts to notes', async () => {
-      const store = createTestStore()
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

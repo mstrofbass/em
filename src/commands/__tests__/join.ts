@@ -9,8 +9,8 @@ import joinShortcut from '../join'
 
 describe('join', () => {
   describe('multicursor', () => {
-    it('join multiple selected thoughts', () => {
-      const store = createTestStore()
+    it('join multiple selected thoughts', async () => {
+      const store = await createTestStore()
 
       store.dispatch([
         importText({

@@ -12,8 +12,8 @@ import createTestStore from '../../test-helpers/createTestStore'
 import { editThoughtByContextActionCreator as editThought } from '../../test-helpers/editThoughtByContext'
 import { setCursorFirstMatchActionCreator as setCursor } from '../../test-helpers/setCursorFirstMatch'
 
-it('redo thought change', () => {
-  const store = createTestStore()
+it('redo thought change', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -46,8 +46,8 @@ it('redo thought change', () => {
   expect(exportedAfterRedo).toEqual(expectedOutputAfterRedo)
 })
 
-it('group contiguous navigation actions preceding a thought change on redo', () => {
-  const store = createTestStore()
+it('group contiguous navigation actions preceding a thought change on redo', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
@@ -91,8 +91,8 @@ it('group contiguous navigation actions preceding a thought change on redo', () 
   expect(exportedAfterRedo).toEqual(expectedOutputAfterRedo)
 })
 
-it('redo contiguous changes', () => {
-  const store = createTestStore()
+it('redo contiguous changes', async () => {
+  const store = await createTestStore()
 
   store.dispatch([
     importText({
